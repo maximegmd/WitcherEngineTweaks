@@ -1,0 +1,4 @@
+#pragma once
+
+#define WET_BUILD_BRANCH "${GIT_BRANCH}"
+#define WET_BUILD_COMMIT "${GIT_TAG}"
