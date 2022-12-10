@@ -159,7 +159,7 @@ Options::Options(Paths& aPaths)
                 {
                     _stprintf(subBlock, _T("\\StringFileInfo\\%04x%04x\\ProductName"), pTranslations[i].Language, pTranslations[i].CodePage);
                     if (VerQueryValue(verInfo.get(), subBlock, reinterpret_cast<void**>(&productName), &dummy))
-                        if (_tcscmp(productName, _T("Cyberpunk 2077")) == 0)
+                        if (_tcscmp(productName, _T("The Witcher 3")) == 0)
                         {
                             ExeValid = true;
                             break;
@@ -169,14 +169,14 @@ Options::Options(Paths& aPaths)
         }
     }
     // check if exe name matches in case previous check fails
-    ExeValid = ExeValid || aPaths.Executable().filename() == "Cyberpunk2077.exe";
+    ExeValid = ExeValid || aPaths.Executable().filename() == "witcher3.exe";
 
     if (!ExeValid)
-        throw std::runtime_error("Not Cyberpunk2077.exe");
+        throw std::runtime_error("Not witcher3.exe");
 
-    set_default_logger(CreateLogger(GetAbsolutePath(L"cyber_engine_tweaks.log", m_paths.WETRoot(), true), "main", nullptr, "[%Y-%m-%d %H:%M:%S UTC%z] [%l] [%!] [%t] %v"));
+    set_default_logger(CreateLogger(GetAbsolutePath(L"witcher_engine_tweaks.log", m_paths.WETRoot(), true), "main", nullptr, "[%Y-%m-%d %H:%M:%S UTC%z] [%l] [%!] [%t] %v"));
 
-    Log::Info("Cyber Engine Tweaks is starting...");
+    Log::Info("Witcher Engine Tweaks is starting...");
 
     GameImage.Initialize();
 
@@ -186,7 +186,7 @@ Options::Options(Paths& aPaths)
         auto [major, minor] = GameImage.GetVersion();
         Log::Info("Game version {}.{:02d}", major, minor);
         Log::Info("Root path: \"{}\"", UTF16ToUTF8(aPaths.GameRoot().native()));
-        Log::Info("Cyber Engine Tweaks path: \"{}\"", UTF16ToUTF8(aPaths.WETRoot().native()));
+        Log::Info("Witcher Engine Tweaks path: \"{}\"", UTF16ToUTF8(aPaths.WETRoot().native()));
         Log::Info("Lua scripts search path: \"{}\"", UTF16ToUTF8(aPaths.ModsRoot().native()));
 
         if (GameImage.GetVersion() != Image::GetSupportedVersion())

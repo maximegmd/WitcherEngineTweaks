@@ -8,7 +8,7 @@ using namespace std::chrono_literals;
 
 static Window* s_pWindow = nullptr;
 
-static BOOL CALLBACK EnumWindowsProcCP77(HWND ahWnd, LPARAM alParam)
+static BOOL CALLBACK EnumWindowsProcWitcher3(HWND ahWnd, LPARAM alParam)
 {
     DWORD lpdwProcessId;
     GetWindowThreadProcessId(ahWnd, &lpdwProcessId);
@@ -16,7 +16,7 @@ static BOOL CALLBACK EnumWindowsProcCP77(HWND ahWnd, LPARAM alParam)
     {
         TCHAR name[512] = {0};
         GetWindowText(ahWnd, name, 511);
-        if (_tcscmp(_T("Cyberpunk 2077 (C) 2020 by CD Projekt RED"), name) == 0)
+        if (_tcscmp(_T("Witcher 3 by DVD Project Blue"), name) == 0)
         {
             *reinterpret_cast<HWND*>(alParam) = ahWnd;
             return FALSE;
@@ -68,7 +68,7 @@ Window::Window(VKBindings* apBindings, D3D12* apD3D12)
         {
             while (m_hWnd == nullptr)
             {
-                if (EnumWindows(EnumWindowsProcCP77, reinterpret_cast<LPARAM>(&m_hWnd)))
+                if (EnumWindows(EnumWindowsProcWitcher3, reinterpret_cast<LPARAM>(&m_hWnd)))
                     std::this_thread::sleep_for(50ms);
                 else
                 {

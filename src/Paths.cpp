@@ -59,8 +59,9 @@ Paths::Paths()
     m_gameRoot = m_exe.parent_path();
 
     m_WETRoot = m_gameRoot;
+    m_WETRoot /= L"red3ext";
     m_WETRoot /= L"plugins";
-    m_WETRoot /= L"cyber_engine_tweaks";
+    m_WETRoot /= L"witcher_engine_tweaks";
     create_directories(m_WETRoot);
 
     m_config = m_WETRoot / L"config.json";

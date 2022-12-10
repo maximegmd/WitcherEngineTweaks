@@ -19,7 +19,7 @@ static void Initialize()
         const auto& options = WET::Get().GetOptions();
 
         // single instance check
-        s_modInstanceMutex = CreateMutex(nullptr, TRUE, _T("Cyber Engine Tweaks Module Instance"));
+        s_modInstanceMutex = CreateMutex(nullptr, TRUE, _T("Witcher Engine Tweaks Module Instance"));
         if (s_modInstanceMutex == nullptr)
             return;
 

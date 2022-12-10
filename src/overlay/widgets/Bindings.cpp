@@ -439,7 +439,7 @@ void Bindings::UpdateAndDrawModBindings(const std::string& acModName, TiltedPhoq
         return;
 
     // transform mod name to nicer format until modinfo is in
-    std::string activeModName = acModName == s_overlayToggleModBind.ModName ? "Cyber Engine Tweaks" : acModName;
+    std::string activeModName = acModName == s_overlayToggleModBind.ModName ? "Witcher Engine Tweaks" : acModName;
     bool capitalize = true;
     std::ranges::transform(
         std::as_const(activeModName), activeModName.begin(),

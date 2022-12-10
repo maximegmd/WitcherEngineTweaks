@@ -183,7 +183,7 @@ void Overlay::Update()
     const auto heightLimit = 2 * ImGui::GetFrameHeight() + 2 * ImGui::GetStyle().WindowPadding.y;
     ImGui::SetNextWindowPos({width * 0.25f, height * 0.05f}, ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowSizeConstraints({width * 0.5f, heightLimit}, {FLT_MAX, heightLimit});
-    if (ImGui::Begin("Cyber Engine Tweaks"))
+    if (ImGui::Begin("Witcher Engine Tweaks"))
         DrawToolbar();
     ImGui::End();
 
